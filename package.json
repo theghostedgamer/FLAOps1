@@ -1,0 +1,24 @@
+{
+  "name": "fthops",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "ghost",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "discord.js": "^14.19.3",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.15.0",
+    "noblox.js": "^6.2.0",
+    "node-schedule": "^2.1.1",
+    "path": "^0.12.7"
+  }
+}
