@@ -14,10 +14,20 @@ module.exports = {
     .addStringOption(option =>
       option.setName('datetime').setDescription('MM-DD-YYYY HH:mm format').setRequired(true))
     .addChannelOption(option =>
-      option.setName('channel').setDescription('Channel to send the announcement in').setRequired(true))
-    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator), // Optional: restrict who can use
+      option.setName('channel').setDescription('Channel to send the announcement in').setRequired(true)),
 
   async execute(interaction) {
+    // Define allowed role IDs here
+    const allowedRoleIds = ['1221319106758705282', '1375334565048221706']; 
+
+    // Check if user has any of the allowed roles
+    const memberRoles = interaction.member.roles.cache;
+    const hasPermission = allowedRoleIds.some(roleId => memberRoles.has(roleId));
+
+    if (!hasPermission) {
+      return interaction.reply({ content: "❌ You don't have permission to use this command.", ephemeral: true });
+    }
+
     const flightNumber = interaction.options.getString('flight_number');
     const departure = interaction.options.getString('departure');
     const destination = interaction.options.getString('destination');
